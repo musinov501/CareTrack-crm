@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile | CareTrack</title>
+    <link rel="stylesheet" href="../../dashboard/style.css">
+    <link rel="stylesheet" href="../../patients/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../css/enhancements.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-layout">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="brand"><h2>CareTrack</h2><p>MRMS • v1.0</p></div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="../../dashboard/index.html" class="nav-item">Dashboard</a>
+            <a href="../index.html" class="nav-item active">Doctors</a>
+            <a href="../../patients/index.html" class="nav-item">Patients</a>
+            <a href="../../diagnoses/index.html" class="nav-item">Diagnoses</a>
+            <a href="../../referrals/index.html" class="nav-item">Referrals</a>
+            <a href="../../settings/index.html" class="nav-item">Settings</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-block">
+                <div class="role-badge" id="userRole">—</div>
+                <p class="user-email" id="userEmail">—</p>
+                <button class="sign-out" id="signOutBtn">Sign out</button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content doctor-profile-page">
+        <header class="profile-top-bar">
+            <button class="btn-outline back-btn" onclick="history.back()">← Back to Doctors</button>
+        </header>
+
+        <section class="doctor-profile-grid">
+            <!-- Doctor identity card -->
+            <div class="dash-card doc-identity-card">
+                <div class="doc-identity-inner">
+                    <img id="docPhoto" src="" alt="Doctor" class="doc-profile-photo">
+                    <div class="doc-identity-text">
+                        <h1 id="docName">Loading...</h1>
+                        <div class="doc-pills">
+                            <span class="pill pill-specialty" id="docSpecialty">—</span>
+                            <span class="pill pill-exp" id="docExp">—</span>
+                        </div>
+                        <div class="doc-status-row">
+                            <span class="pill pill-duty" id="pillDuty">● On duty</span>
+                            <span class="pill pill-available" id="pillAvailable">● Available</span>
+                        </div>
+                        <div class="contact-actions">
+                            <a id="btnPhone" class="contact-btn" href="#" title="Call">📞</a>
+                            <a id="btnEmail" class="contact-btn" href="#" title="Email">✉</a>
+                            <button class="contact-btn" type="button" title="Messages">💬</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini stats -->
+            <div class="mini-stats-col">
+                <div class="dash-card mini-stat-card">
+                    <div class="mini-stat-icon">👥</div>
+                    <p class="mini-stat-value" id="statPatients">—</p>
+                    <p class="mini-stat-label">Patients under care</p>
+                </div>
+                <div class="dash-card mini-stat-card">
+                    <div class="mini-stat-icon">£</div>
+                    <p class="mini-stat-value" id="statRevenue">—</p>
+                    <p class="mini-stat-label">Avg revenue per case</p>
+                </div>
+                <div class="dash-card mini-stat-card highlight">
+                    <div class="mini-stat-icon">✓</div>
+                    <p class="mini-stat-value" id="statRecovery">—</p>
+                    <p class="mini-stat-label">Recovery rate</p>
+                </div>
+            </div>
+
+            <!-- Feedback -->
+            <div class="dash-card feedback-carousel-card">
+                <div class="card-title-row">
+                    <h3>Feedback</h3>
+                    <div class="carousel-nav">
+                        <button type="button" id="fbPrev" aria-label="Previous">‹</button>
+                        <button type="button" id="fbNext" aria-label="Next">›</button>
+                    </div>
+                </div>
+                <div class="feedback-slide" id="feedbackSlide">
+                    <img id="fbAvatar" src="" alt="" class="fb-avatar">
+                    <div>
+                        <div class="fb-stars" id="fbStars">★★★★☆</div>
+                        <p class="fb-name" id="fbName">—</p>
+                        <p class="fb-text" id="fbText">—</p>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+
+            <!-- Performance radar -->
+            <div class="dash-card performance-card">
+                <h3>Performance Analysis</h3>
+                <div class="radar-wrap">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patient list -->
+        <section class="dash-card patient-list-card">
+            <div class="list-header patient-list-header">
+                <div>
+                    <h3>Patient list</h3>
+                    <p class="meta">Information about surgery & ongoing cases</p>
+                </div>
+                <div class="legend">
+                    <span><i class="dot dot-ongoing"></i> Ongoing</span>
+                    <span><i class="dot dot-completed"></i> Completed</span>
+                </div>
+            </div>
+            <div class="table-scroll">
+                <table class="data-table profile-patient-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Patient ID</th>
+                            <th>Patient name</th>
+                            <th>Date of admit</th>
+                            <th>Case</th>
+                            <th>Treatment</th>
+                            <th>Ward no</th>
+                        </tr>
+                    </thead>
+                    <tbody id="doctorPatientsBody">
+                        <tr><td colspan="7" class="empty-state">Loading patients...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="../../js/shared.js"></script>
+    <script src="../../js/sidebar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients | CareTrack</title>
+    <link rel="stylesheet" href="../dashboard/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/enhancements.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-layout">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="brand">
+                <h2>CareTrack</h2>
+                <p>MRMS • v1.0</p>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="../dashboard/index.html" class="nav-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Dashboard
+            </a>
+            <a href="../doctors/index.html" class="nav-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                Doctors
+            </a>
+            <a href="../patients/index.html" class="nav-item active">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg>
+                Patients
+            </a>
+            <a href="../diagnoses/index.html" class="nav-item">Diagnoses</a>
+            <a href="../referrals/index.html" class="nav-item">Referrals</a>
+            <a href="../settings/index.html" class="nav-item">Settings</a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-block">
+                <div class="role-badge" id="userRole">—</div>
+                <p class="user-email" id="userEmail">—</p>
+                <button class="sign-out" id="signOutBtn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Sign out
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header">
+            <span class="eyebrow">RECORDS</span>
+            <h1>Patients</h1>
+            <p>Complete record of clinical patient history and department assignments.</p>
+        </header>
+
+        <div class="page-toolbar">
+            <div class="filter-bar">
+                <div class="search-input">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" id="patientSearch" placeholder="Search by name or patient ID">
+                </div>
+                <select id="filterDept">
+                    <option value="">All departments</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Dermatology">Dermatology</option>
+                    <option value="Orthopaedics">Orthopaedics</option>
+                    <option value="General Practice">General Practice</option>
+                </select>
+                <select id="filterTreatment">
+                    <option value="">All treatments</option>
+                    <option value="Ongoing">Ongoing</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Under observation">Under observation</option>
+                </select>
+            </div>
+            <button class="btn-primary" id="registerPatientBtn">+ Register New Patient</button>
+        </div>
+        
+        <div class="dash-card table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Date of Admit</th>
+                        <th>Assigned Doctor</th>
+                        <th>Treatment</th>
+                        <th>Ward</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="patientsTableBody">
+                    <!-- Data injected by JS -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal: Register Patient -->
+    <div id="patientModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Register New Patient</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="patientForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Patient Name</label>
+                        <input type="text" id="pName" placeholder="Full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Admit Date</label>
+                        <input type="date" id="pDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Assigned Doctor</label>
+                        <select id="pDoctor" required>
+                            <!-- Injected by JS -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ward No</label>
+                        <input type="text" id="pWard" placeholder="e.g. B12" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Treatment status</label>
+                        <select id="pTreatment">
+                            <option value="Ongoing">Ongoing</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Under observation">Under observation</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary close-modal">Cancel</button>
+                    <button type="submit" class="btn-primary">Register Patient</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/shared.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

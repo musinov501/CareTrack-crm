@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareTrack | Sign In</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/enhancements.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="split-screen">
+        <!-- Left Side: Dark Green -->
+        <div class="visual-pane">
+            <div class="content-wrapper">
+                <header class="visual-header">
+                    <div class="logo-circle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <div class="brand-text">
+                        <h2>CareTrack</h2>
+                        <p>Medical Record Management</p>
+                    </div>
+                </header>
+                
+                <main class="visual-main">
+                    <h1>A calmer way to care<br>for every record.</h1>
+                    <p>Doctors, patients, and diagnoses — unified across departments with role-based access, full history, and instant search.</p>
+                </main>
+                
+                <footer class="visual-stats">
+                    <div class="stat-card">
+                        <h3>8</h3>
+                        <p>Departments</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>RBAC</h3>
+                        <p>Compliance</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Live</h3>
+                        <p>Records</p>
+                    </div>
+                </footer>
+                
+                <div class="legal-footer">
+                    © CareTrack Clinic • Built by MediCore Solutions
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Beige -->
+        <div class="form-pane">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <span class="eyebrow">WELCOME BACK</span>
+                    <h1>Sign in to CareTrack</h1>
+                    <p>Access your patient records and clinical workspace.</p>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="you@caretrack.clinic" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="At least 8 characters" required>
+                    </div>
+                    
+                    <button type="submit" id="loginBtn">
+                        Sign in <span class="arrow">→</span>
+                    </button>
+                    
+                    <div class="form-footer">
+                        New to CareTrack? <a href="../register/index.html">Create an account</a>
+                    </div>
+                    <p class="demo-hint" style="margin-top:16px;font-size:12px;color:rgba(11,47,49,0.5);">
+                        Demo: admin <code>musinovmuhammaader@gmail.com</code> · clinician <code>clinician@caretrack.clinic</code> · reception <code>reception@caretrack.clinic</code> — password <code>password123</code>
+                    </p>
+                </form>
+                
+                <div id="message" class="message"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/shared.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

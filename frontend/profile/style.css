@@ -1,0 +1,90 @@
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.profile-cards {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.card-inner {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.profile-avatar-placeholder {
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #E6EEF0, #dce8eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal-ui);
+}
+
+.profile-info h2 {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.status-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.tag-available { background: #e7f6ec; color: #008a2e; }
+.tag-duty { background: #f7f3e9; color: #6b5a2e; }
+
+.badge-dept {
+    background: var(--teal-ui);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+.doctor-block {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.feebback-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.doc-phone {
+    font-size: 13px;
+    color: rgba(11, 47, 49, 0.6);
+    margin-top: 6px;
+}
+
+.section-pad {
+    padding: 24px 24px 0;
+}
+
+.back-link {
+    margin-bottom: 0;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareTrack | Register</title>
+    <link rel="stylesheet" href="../login/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="split-screen">
+        <!-- Left Side: Dark Green -->
+        <div class="visual-pane">
+            <div class="content-wrapper">
+                <header class="visual-header">
+                    <div class="logo-circle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <div class="brand-text">
+                        <h2>CareTrack</h2>
+                        <p>Medical Record Management</p>
+                    </div>
+                </header>
+                
+                <main class="visual-main">
+                    <h1>Join the clinic<br>workspace today.</h1>
+                    <p>Register as a staff member to start managing patient histories and clinical workflows with modern tools.</p>
+                </main>
+                
+                <footer class="visual-stats">
+                    <div class="stat-card">
+                        <h3>Easy</h3>
+                        <p>Setup</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Secure</h3>
+                        <p>Data</p>
+                    </div>
+                </footer>
+                
+                <div class="legal-footer">
+                    © CareTrack Clinic • Built by MediCore Solutions
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Beige -->
+        <div class="form-pane">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <span class="eyebrow">STAFF REGISTRATION</span>
+                    <h1>Create staff account</h1>
+                    <p>Enter your details below to request access.</p>
+                </div>
+                
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Clinic Email</label>
+                        <input type="email" id="email" placeholder="you@caretrack.clinic" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Min 8 characters" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Assign Role</label>
+                        <select id="role" required style="width:100%; padding: 14px; border-radius: 12px; border: 1.5px solid var(--input-border); background:white;">
+                            <option value="RECEPTIONIST">Receptionist</option>
+                            <option value="CLINICIAN">Clinician</option>
+                            <option value="ADMINISTRATOR">Administrator</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" id="registerBtn">
+                        Register Account <span class="arrow">→</span>
+                    </button>
+                    
+                    <div class="form-footer">
+                        Already have an account? <a href="../login/index.html">Sign in</a>
+                    </div>
+                </form>
+                
+                <div id="message" class="message"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/shared.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
