@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('refStatus').value = r.status;
             form.dataset.mode = 'edit';
             form.dataset.id = id;
-            modal.style.display = 'block';
+            modal.style.display = 'flex';
         });
     }
 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         form.reset();
         delete form.dataset.mode;
         loadPatients();
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     });
 
     document.querySelectorAll('.close-modal').forEach((b) => {

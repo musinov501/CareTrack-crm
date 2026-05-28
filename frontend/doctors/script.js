@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('emailFields').style.display = 'grid';
         document.querySelector('#doctorModal h2').textContent = 'Add New Specialist';
         document.getElementById('doctorSubmitBtn').textContent = 'Add Doctor';
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     });
 
     document.querySelectorAll('.close-modal').forEach((btn) => {
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         form.dataset.id = id;
         document.querySelector('#doctorModal h2').textContent = 'Edit Doctor Profile';
         document.getElementById('doctorSubmitBtn').textContent = 'Save Changes';
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     }
 
     form.onsubmit = async (e) => {

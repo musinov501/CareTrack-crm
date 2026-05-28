@@ -244,15 +244,20 @@ body {
     height: 100%;
     background: rgba(11, 47, 49, 0.4);
     backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
     background: rgba(252, 250, 244, 0.95);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    margin: 10% auto;
+    margin: 0;
     padding: 32px;
     width: 600px;
+    max-width: 92vw;
+    max-height: 88vh;
+    overflow-y: auto;
     border-radius: 24px;
     box-shadow: 0 25px 50px rgba(11, 47, 49, 0.15);
 }

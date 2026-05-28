@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         loadDoctorsDropdown().then(() => {
             document.getElementById('pDoctor').value = p.doctor_id || '';
         });
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     }
 
     document.getElementById('registerPatientBtn')?.addEventListener('click', () => {
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         delete form.dataset.mode;
         document.querySelector('#patientModal h2').textContent = 'Register New Patient';
         loadDoctorsDropdown();
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     });
 
     document.querySelectorAll('.close-modal').forEach((b) => {

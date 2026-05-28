@@ -73,14 +73,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         loadPatientsDropdown().then(() => {
             document.getElementById('diagPatient').value = d.patient_id;
         });
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     }
 
     document.getElementById('addDiagBtn')?.addEventListener('click', () => {
         form.reset();
         delete form.dataset.mode;
         loadPatientsDropdown();
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
     });
 
     document.querySelectorAll('.close-modal').forEach((b) => {

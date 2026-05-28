@@ -29,6 +29,13 @@
     box-shadow: 4px 0 24px rgba(11, 47, 49, 0.12);
 }
 
+/* Nav icons — prevent shrinking and ensure proper scaling */
+.nav-item svg {
+    flex-shrink: 0;
+    overflow: visible;
+}
+
+
 .nav-item.active {
     background: linear-gradient(90deg, rgba(0, 107, 107, 0.35), rgba(255, 255, 255, 0.08));
     border-left: 3px solid #7dd3c0;
