@@ -1,0 +1,2 @@
+/    /login/index.html    301!
+/api/*  https://caretrack-crm.onrender.com/api/:splat  200
